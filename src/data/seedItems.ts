@@ -1,0 +1,612 @@
+import type { AssessmentItem } from '../types/assessment';
+
+export const SEED_ITEMS: AssessmentItem[] = [
+  {
+    id: 'item-bio-402',
+    code: 'ITEM-BIO-402',
+    subject: 'Biologi',
+    gradeLevel: 'Kelas 11 SMA · Fase F',
+    curriculumCode: 'BIO-F.11.4 / NGSS HS-LS1-7',
+    topic: 'Enzyme Kinetics & Allosteric Inhibition',
+    learningObjective:
+      'Analyze experimental reaction velocity curves to distinguish competitive from non-competitive enzyme inhibition.',
+    bloomLevel: 'C4',
+    itemType: 'multiple-choice',
+    status: 'verified',
+    stimulusKind: 'chart-series',
+    stimulusTitle: 'Catalase Reaction Velocity Under Inhibitor Treatment',
+    stimulusText:
+      'A biochemistry lab measured initial reaction velocity (v0) of catalase across increasing hydrogen peroxide substrate concentrations [S] under two conditions: Control (no inhibitor) and Compound X (10 mM). Temperature and pH were held constant at 37°C and pH 7.0.',
+    stimulusSource: 'Experimental Kinetics Lab Series · Dataset 2026-B',
+    stimulusChart: {
+      title: 'Reaction Velocity v0 (μmol/min) vs. Substrate [S] (mM)',
+      xAxisLabel: 'Substrate [S] (mM)',
+      yAxisLabel: 'Velocity v0',
+      seriesALabel: 'Control',
+      seriesBLabel: 'With Compound X',
+      points: [
+        { xLabel: '2', seriesA: 18, seriesB: 10 },
+        { xLabel: '5', seriesA: 34, seriesB: 19 },
+        { xLabel: '10', seriesA: 48, seriesB: 28 },
+        { xLabel: '20', seriesA: 58, seriesB: 33 },
+        { xLabel: '40', seriesA: 62, seriesB: 35 },
+        { xLabel: '80', seriesA: 63, seriesB: 35 },
+      ],
+    },
+    stem: 'Based on the asymptotic ceiling of both curves at high substrate concentration ([S] ≥ 40 mM), which mechanistic conclusion best explains Compound X?',
+    options: [
+      {
+        id: 'opt-a',
+        label: 'A',
+        text: 'Compound X binds reversibly to the active site, so high [S] restores full Vmax.',
+        distractorNote:
+          'Incorrect: Competitive inhibition converges toward the same Vmax at saturating [S], whereas Compound X plateaus near 35 μmol/min.',
+      },
+      {
+        id: 'opt-b',
+        label: 'B',
+        text: 'Compound X acts as a non-competitive inhibitor that reduces functional Vmax regardless of substrate saturation.',
+        distractorNote:
+          'Correct: Both curves plateau near the half-saturation point around similar Km, while Compound X lowers Vmax from ~63 to ~35 μmol/min.',
+      },
+      {
+        id: 'opt-c',
+        label: 'C',
+        text: 'Compound X increases catalase affinity for substrate by lowering the apparent Km without altering Vmax.',
+        distractorNote:
+          'Incorrect: Lower apparent Km with unchanged Vmax describes an allosteric activator, which contradicts the depressed velocity curve.',
+      },
+      {
+        id: 'opt-d',
+        label: 'D',
+        text: 'Hydrogen peroxide denatured the enzyme completely once [S] exceeded 20 mM.',
+        distractorNote:
+          'Incorrect: Complete denaturation would collapse velocity toward zero rather than maintaining a stable plateau.',
+      },
+    ],
+    correctOptionId: 'opt-b',
+    modelAnswer:
+      'B — Non-competitive inhibition decreases apparent Vmax because the inhibitor binds an allosteric site and cannot be outcompeted by excess substrate.',
+    pedagogicalExplanation:
+      'Requires students to read asymptotic Vmax behavior from empirical curve data rather than reciting textbook definitions.',
+    difficultyIndex: 0.44,
+    discriminationIndex: 0.41,
+    estimatedMinutes: 3,
+    points: 4,
+    rubric: [
+      {
+        id: 'rub-bio-1',
+        criterion: 'Vmax Ceiling Identification',
+        maxPoints: 2,
+        levels: {
+          exemplary: 'Accurately identifies Vmax reduction (~63 to ~35) and links it to allosteric binding.',
+          proficient: 'Identifies lower maximum velocity with Compound X.',
+          developing: 'Notes lower velocity at low [S] but misses high-[S] saturation implication.',
+          emerging: 'Confuses Km shift with Vmax depression.',
+        },
+      },
+    ],
+    inExamPaper: true,
+    updatedAt: '2026-11-16',
+  },
+  {
+    id: 'item-eco-508',
+    code: 'ITEM-ECO-508',
+    subject: 'Ekonomi',
+    gradeLevel: 'Kelas 12 SMA · Fase F',
+    curriculumCode: 'ECO-KD-3.4 / IB 2.7',
+    topic: 'Monetary Transmission & Stagflation Trade-offs',
+    learningObjective:
+      'Evaluate central bank policy interventions when supply-side shocks simultaneously elevate inflation and suppress output.',
+    bloomLevel: 'C5',
+    itemType: 'case-analysis',
+    status: 'verified',
+    stimulusKind: 'data-table',
+    stimulusTitle: 'Macroeconomic Indicators — Quarterly Policy Brief',
+    stimulusText:
+      'An emerging industrial economy experiences a sharp imported energy disruption over three consecutive quarters. Evaluate the macro panel below before selecting the policy trade-off assessment.',
+    stimulusSource: 'Regional Monetary Policy Simulation Brief · Q3',
+    stimulusTable: {
+      caption: 'Quarterly Macroeconomic Panel (Year-over-Year)',
+      headers: ['Quarter', 'Headline CPI (%)', 'Real GDP Growth (%)', 'Policy Rate (%)', 'Unemployment (%)'],
+      rows: [
+        ['Q1 Baseline', '3.1%', '4.6%', '5.25%', '4.8%'],
+        ['Q2 Shock Onset', '5.4%', '2.9%', '5.25%', '5.3%'],
+        ['Q3 Current', '6.8%', '1.4%', '5.75%', '6.1%'],
+      ],
+    },
+    stem: 'If the Monetary Authority hikes the policy rate by an additional 150 bps in Q4 to anchor inflation expectations, which short-term macroeconomic trade-off is most defensibly supported by the Q1–Q3 trajectory?',
+    options: [
+      {
+        id: 'opt-a',
+        label: 'A',
+        text: 'Aggregate demand contraction will accelerate disinflation at the cost of deeper GDP deceleration and rising cyclical unemployment.',
+        distractorNote:
+          'Correct: Tightening monetary policy against a cost-push shock curbs demand-pull pressure but worsens short-run output and employment.',
+      },
+      {
+        id: 'opt-b',
+        label: 'B',
+        text: 'Higher interest rates will immediately expand domestic energy supply and raise Q4 real GDP growth back above 4.5%.',
+        distractorNote:
+          'Incorrect: Monetary tightening restricts credit and investment rather than expanding physical supply capacity.',
+      },
+      {
+        id: 'opt-c',
+        label: 'C',
+        text: 'Unemployment will fall below 4.8% because higher borrowing costs stimulate labor-intensive manufacturing.',
+        distractorNote:
+          'Incorrect: Higher financing costs typically slow hiring and capital expansion.',
+      },
+      {
+        id: 'opt-d',
+        label: 'D',
+        text: 'Headline CPI and real GDP are uncorrelated during supply shocks, leaving output unaffected by rate hikes.',
+        distractorNote:
+          'Incorrect: Interest-sensitive consumption and investment directly transmit rate changes into aggregate output.',
+      },
+    ],
+    correctOptionId: 'opt-a',
+    modelAnswer:
+      'A — Monetary tightening cools aggregate demand to contain inflation expectations, magnifying short-run output and employment losses during stagflation.',
+    pedagogicalExplanation:
+      'Tests C5 evaluation of policy trade-offs under cost-push stagflation using multi-indicator time-series evidence.',
+    difficultyIndex: 0.36,
+    discriminationIndex: 0.44,
+    estimatedMinutes: 4,
+    points: 5,
+    rubric: [
+      {
+        id: 'rub-eco-1',
+        criterion: 'Policy Trade-off Evaluation',
+        maxPoints: 3,
+        levels: {
+          exemplary: 'Balances inflation anchoring benefits against short-run output and unemployment costs with explicit Q1-Q3 evidence.',
+          proficient: 'Identifies demand contraction and employment cost.',
+          developing: 'Identifies inflation reduction without evaluating real-sector cost.',
+          emerging: 'Treats monetary tightening as expansionary.',
+        },
+      },
+      {
+        id: 'rub-eco-2',
+        criterion: 'Transmission Mechanism Precision',
+        maxPoints: 2,
+        levels: {
+          exemplary: 'Explains credit channel, investment pullback, and expectation anchoring clearly.',
+          proficient: 'Explains interest rate impact on aggregate demand.',
+          developing: 'Mentions borrowing costs without linking to AD.',
+          emerging: 'No coherent transmission chain.',
+        },
+      },
+    ],
+    inExamPaper: true,
+    updatedAt: '2026-11-15',
+  },
+  {
+    id: 'item-phy-311',
+    code: 'ITEM-PHY-311',
+    subject: 'Fisika',
+    gradeLevel: 'Kelas 11 SMA · Fase F',
+    curriculumCode: 'PHY-F.11.2 / AP-1.A',
+    topic: 'Kinematics & Non-Uniform Acceleration',
+    learningObjective:
+      'Apply graphical integration of velocity-time functions to determine net displacement during braking intervals.',
+    bloomLevel: 'C3',
+    itemType: 'multiple-choice',
+    status: 'verified',
+    stimulusKind: 'chart-series',
+    stimulusTitle: 'Automated Rail Shuttle Velocity Profile',
+    stimulusText:
+      'An urban rail shuttle departs Station A at t = 0 s, reaches cruising speed, and initiates regenerative braking at t = 20 s until stopping at t = 40 s.',
+    stimulusSource: 'Mechanics Assessment Bank · Module 2',
+    stimulusChart: {
+      title: 'Velocity v (m/s) vs. Time t (s)',
+      xAxisLabel: 'Time t (s)',
+      yAxisLabel: 'Velocity (m/s)',
+      seriesALabel: 'Shuttle Velocity',
+      points: [
+        { xLabel: '0', seriesA: 0 },
+        { xLabel: '10', seriesA: 24 },
+        { xLabel: '20', seriesA: 24 },
+        { xLabel: '30', seriesA: 12 },
+        { xLabel: '40', seriesA: 0 },
+      ],
+    },
+    stem: 'What is the total displacement covered by the shuttle exclusively during the deceleration phase from t = 20 s to t = 40 s?',
+    options: [
+      {
+        id: 'opt-a',
+        label: 'A',
+        text: '120 m',
+        distractorNote: 'Incorrect: Corresponds to 10 s instead of the full 20 s braking window.',
+      },
+      {
+        id: 'opt-b',
+        label: 'B',
+        text: '240 m',
+        distractorNote: 'Correct: Area of triangle under v-t graph = 0.5 × (40 − 20) s × 24 m/s = 240 m.',
+      },
+      {
+        id: 'opt-c',
+        label: 'C',
+        text: '360 m',
+        distractorNote: 'Incorrect: Includes part of the constant-velocity cruising interval.',
+      },
+      {
+        id: 'opt-d',
+        label: 'D',
+        text: '480 m',
+        distractorNote: 'Incorrect: Multiplies base × height without the 0.5 triangular factor.',
+      },
+    ],
+    correctOptionId: 'opt-b',
+    modelAnswer: 'B — 240 m, calculated from the area under the triangular deceleration segment (0.5 × 20 s × 24 m/s).',
+    pedagogicalExplanation:
+      'Classic C3 application task isolating a sub-interval from a multi-phase kinematic profile.',
+    difficultyIndex: 0.61,
+    discriminationIndex: 0.37,
+    estimatedMinutes: 2,
+    points: 3,
+    rubric: [
+      {
+        id: 'rub-phy-1',
+        criterion: 'Graphical Integration Accuracy',
+        maxPoints: 3,
+        levels: {
+          exemplary: 'Isolates t=20..40s and computes triangular area 240 m.',
+          proficient: 'Correct formula with minor unit omission.',
+          developing: 'Uses rectangular area (480 m) instead of triangle.',
+          emerging: 'Reads velocity value directly as displacement.',
+        },
+      },
+    ],
+    inExamPaper: true,
+    updatedAt: '2026-11-14',
+  },
+  {
+    id: 'item-his-604',
+    code: 'ITEM-HIS-604',
+    subject: 'Sejarah',
+    gradeLevel: 'Kelas 12 SMA · Fase F',
+    curriculumCode: 'HIS-F.12.3 / IB-HL-P2',
+    topic: 'Post-Colonial Industrial Policy & Archival Synthesis',
+    learningObjective:
+      'Synthesize contrasting archival primary excerpts to construct a weighted historical argument on 1950s trade policy.',
+    bloomLevel: 'C6',
+    itemType: 'short-essay',
+    status: 'verified',
+    stimulusKind: 'passage',
+    stimulusTitle: 'Archival Excerpts: 1956 National Industrialization Debate',
+    stimulusText:
+      'Source A (Ministry of Trade Memorandum, 1956): "Without protective tariff walls around domestic textile and steel fabrication, nascent regional factories cannot survive price dumping from established Atlantic conglomerates."\n\nSource B (Chamber of Maritime Commerce Petition, 1957): "Import licensing bottlenecks have raised spare-part costs by 38% across port logistics, starving export-oriented agricultural cooperatives of vital foreign exchange."',
+    stimulusSource: 'National Economic Archive · Folio 14-C',
+    stem: 'Design a balanced policy synthesis memo for a 1958 parliamentary committee that reconciles the industrial infant-protection goal in Source A with the foreign-exchange bottleneck identified in Source B. Support your proposal with two concrete mechanisms.',
+    options: [],
+    correctOptionId: '',
+    modelAnswer:
+      'A high-scoring synthesis proposes targeted, time-bound tariffs exclusively for finished consumer goods while exempting capital machinery and agricultural spare parts from import quotas, paired with export-linked foreign exchange retention credits.',
+    pedagogicalExplanation:
+      'C6 creation prompt requiring original policy architecture constrained by conflicting historical primary sources.',
+    difficultyIndex: 0.31,
+    discriminationIndex: 0.46,
+    estimatedMinutes: 8,
+    points: 10,
+    rubric: [
+      {
+        id: 'rub-his-1',
+        criterion: 'Primary Source Synthesis',
+        maxPoints: 4,
+        levels: {
+          exemplary: 'Explicitly integrates both Source A protection rationale and Source B foreign-exchange constraint.',
+          proficient: 'References both sources accurately with minor imbalance.',
+          developing: 'Relies primarily on one source while briefly mentioning the other.',
+          emerging: 'Offers generic commentary without grounding in Sources A or B.',
+        },
+      },
+      {
+        id: 'rub-his-2',
+        criterion: 'Institutional Mechanism Design',
+        maxPoints: 4,
+        levels: {
+          exemplary: 'Proposes two historically plausible, internally consistent policy instruments with clear trade-off mitigation.',
+          proficient: 'Proposes two clear mechanisms addressing tariff and import friction.',
+          developing: 'Proposes one mechanism or vague recommendations.',
+          emerging: 'No actionable mechanism proposed.',
+        },
+      },
+      {
+        id: 'rub-his-3',
+        criterion: 'Historical Causation & Tone',
+        maxPoints: 2,
+        levels: {
+          exemplary: 'Maintains 1950s institutional register and avoids anachronistic modern references.',
+          proficient: 'Clear academic prose with accurate period context.',
+          developing: 'Occasional anachronism or imprecise economic terminology.',
+          emerging: 'Disconnected from 1950s historical context.',
+        },
+      },
+    ],
+    inExamPaper: true,
+    updatedAt: '2026-11-14',
+  },
+  {
+    id: 'item-mat-205',
+    code: 'ITEM-MAT-205',
+    subject: 'Matematika',
+    gradeLevel: 'Kelas 10 SMA · Fase E',
+    curriculumCode: 'MAT-E.10.2 / CCSS-HSA',
+    topic: 'Exponential Decay & Half-Life Modeling',
+    learningObjective:
+      'Interpret the base parameter and initial coefficient in a standard exponential decay equation.',
+    bloomLevel: 'C2',
+    itemType: 'multiple-choice',
+    status: 'verified',
+    stimulusKind: 'passage',
+    stimulusTitle: 'Pharmacokinetic Clearance Model',
+    stimulusText:
+      'A clinical researcher models the concentration C(t) (in mg/L) of an antibiotic remaining in a patient’s bloodstream t hours after administration using the function C(t) = 120 · (0.75)^t.',
+    stimulusSource: 'Algebraic Modeling Item Bank',
+    stem: 'Which statement accurately interprets the parameter 0.75 in the context of this clinical model?',
+    options: [
+      {
+        id: 'opt-a',
+        label: 'A',
+        text: '75 mg/L of the antibiotic is eliminated during the first hour.',
+        distractorNote: 'Incorrect: Confuses multiplicative decay factor with a linear subtraction.',
+      },
+      {
+        id: 'opt-b',
+        label: 'B',
+        text: '75% of the remaining antibiotic stays in the bloodstream after each elapsed hour (a 25% hourly decay rate).',
+        distractorNote: 'Correct: Base b = 0.75 represents the retention multiplier per unit time t.',
+      },
+      {
+        id: 'opt-c',
+        label: 'C',
+        text: 'The concentration reaches 0 mg/L in exactly 0.75 hours.',
+        distractorNote: 'Incorrect: Exponential decay approaches zero asymptotically.',
+      },
+      {
+        id: 'opt-d',
+        label: 'D',
+        text: 'The initial dosage administered at t = 0 was 0.75 mg/L.',
+        distractorNote: 'Incorrect: Initial concentration at t = 0 is 120 mg/L.',
+      },
+    ],
+    correctOptionId: 'opt-b',
+    modelAnswer:
+      'B — Each 1-hour increment multiplies the previous concentration by 0.75, meaning 25% is cleared hourly.',
+    pedagogicalExplanation:
+      'Tests conceptual comprehension (C2) of exponential base parameters without requiring logarithmic computation.',
+    difficultyIndex: 0.72,
+    discriminationIndex: 0.34,
+    estimatedMinutes: 2,
+    points: 2,
+    rubric: [
+      {
+        id: 'rub-mat-1',
+        criterion: 'Parameter Interpretation',
+        maxPoints: 2,
+        levels: {
+          exemplary: 'Correctly distinguishes retention factor (75%) from decay rate (25%).',
+          proficient: 'Identifies exponential retention behavior.',
+          developing: 'Confuses retention factor with decay percentage.',
+          emerging: 'Treats 0.75 as linear slope.',
+        },
+      },
+    ],
+    inExamPaper: true,
+    updatedAt: '2026-11-12',
+  },
+  {
+    id: 'item-che-109',
+    code: 'ITEM-CHE-109',
+    subject: 'Kimia',
+    gradeLevel: 'Kelas 10 SMA · Fase E',
+    curriculumCode: 'CHE-E.10.1 / NGSS HS-PS1-1',
+    topic: 'Periodic Trends & Valence Shell Structure',
+    learningObjective:
+      'Recall the primary quantum principle governing ionization energy progression across Period 3.',
+    bloomLevel: 'C1',
+    itemType: 'multiple-choice',
+    status: 'verified',
+    stimulusKind: 'none',
+    stem: 'Which periodic trend accurately describes first ionization energy as atomic number increases from sodium (Na) to argon (Ar) across Period 3?',
+    options: [
+      {
+        id: 'opt-a',
+        label: 'A',
+        text: 'It generally increases due to rising effective nuclear charge with constant principal energy shells.',
+        distractorNote: 'Correct: Added protons pull valence electrons in the n=3 shell more tightly.',
+      },
+      {
+        id: 'opt-b',
+        label: 'B',
+        text: 'It steadily decreases because outer electrons move into higher principal quantum shells.',
+        distractorNote: 'Incorrect: Describes descending a group rather than crossing a period.',
+      },
+      {
+        id: 'opt-c',
+        label: 'C',
+        text: 'It remains constant across all nonmetals and metalloids.',
+        distractorNote: 'Incorrect: Effective nuclear charge varies significantly across Period 3.',
+      },
+      {
+        id: 'opt-d',
+        label: 'D',
+        text: 'It drops to zero at argon because noble gases have complete octets.',
+        distractorNote: 'Incorrect: Noble gases exhibit the highest ionization energy in their period.',
+      },
+    ],
+    correctOptionId: 'opt-a',
+    modelAnswer: 'A — Effective nuclear charge increases across Period 3 while shielding remains relatively constant.',
+    pedagogicalExplanation: 'Foundational C1 recall item suitable for diagnostic warm-up checks.',
+    difficultyIndex: 0.79,
+    discriminationIndex: 0.28,
+    estimatedMinutes: 1,
+    points: 2,
+    rubric: [
+      {
+        id: 'rub-che-1',
+        criterion: 'Factual Accuracy',
+        maxPoints: 2,
+        levels: {
+          exemplary: 'Selects correct trend and nuclear charge rationale.',
+          proficient: 'Identifies increasing ionization energy.',
+          developing: 'Confuses period and group trends.',
+          emerging: 'Incorrect direction.',
+        },
+      },
+    ],
+    inExamPaper: false,
+    updatedAt: '2026-11-10',
+  },
+  {
+    id: 'item-lit-415',
+    code: 'ITEM-LIT-415',
+    subject: 'Bahasa Indonesia',
+    gradeLevel: 'Kelas 11 SMA · Fase F',
+    curriculumCode: 'LIT-F.11.6 / CCSS-RL.11-12',
+    topic: 'Unreliable Narration & Structural Irony',
+    learningObjective:
+      'Analyze how syntactic shifts and selective omission reveal narrative unreliability in modernist prose.',
+    bloomLevel: 'C4',
+    itemType: 'multiple-choice',
+    status: 'draft',
+    stimulusKind: 'passage',
+    stimulusTitle: 'Excerpt — "The Ledger of Harbor Fog"',
+    stimulusText:
+      '"I assured the board that every crate of barometers arrived dry, though I had not actually walked down to Pier 4 since Tuesday’s squall. Still, the clerk’s handwriting looked remarkably calm on the manifest, and calm ink rarely lies—unless one counts the smudged column where the salt water kissed the totals."',
+    stimulusSource: 'Contemporary Assessment Reader · Unit 4',
+    stem: 'How does the narrator’s parenthetical dash in the final clause undermine the credibility of his opening assurance?',
+    options: [
+      {
+        id: 'opt-a',
+        label: 'A',
+        text: 'It introduces physical evidence of water damage that directly contradicts his claim of dry delivery.',
+        distractorNote:
+          'Correct: The sensory detail of salt-smudged ink exposes self-deception and unverified testimony.',
+      },
+      {
+        id: 'opt-b',
+        label: 'B',
+        text: 'It proves the clerk intentionally forged the shipping manifest out of loyalty.',
+        distractorNote: 'Incorrect: The passage indicates water damage, not intentional forgery.',
+      },
+      {
+        id: 'opt-c',
+        label: 'C',
+        text: 'It establishes an objective third-person narrator correcting a minor clerical error.',
+        distractorNote: 'Incorrect: The passage remains strictly first-person.',
+      },
+      {
+        id: 'opt-d',
+        label: 'D',
+        text: 'It shifts the passage into celebratory lyricism about maritime trade.',
+        distractorNote: 'Incorrect: The tone is defensive and ironic, not celebratory.',
+      },
+    ],
+    correctOptionId: 'opt-a',
+    modelAnswer:
+      'A — The aside reveals salt-water smudging on the manifest, exposing that the narrator gave a false assurance without inspecting Pier 4.',
+    pedagogicalExplanation:
+      'Draft C4 literary analysis item awaiting peer calibration before inclusion in the final exam blueprint.',
+    difficultyIndex: 0.49,
+    discriminationIndex: 0.39,
+    estimatedMinutes: 3,
+    points: 4,
+    rubric: [
+      {
+        id: 'rub-lit-1',
+        criterion: 'Irony & Evidence Detection',
+        maxPoints: 4,
+        levels: {
+          exemplary: 'Pinpoints syntactic shift and explains contradiction with opening assertion.',
+          proficient: 'Identifies water damage contradiction.',
+          developing: 'Notes narrator uncertainty without linking to structural dash.',
+          emerging: 'Reads narrator assertion literally.',
+        },
+      },
+    ],
+    inExamPaper: false,
+    updatedAt: '2026-11-17',
+  },
+  {
+    id: 'item-bio-319',
+    code: 'ITEM-BIO-319',
+    subject: 'Biologi',
+    gradeLevel: 'Kelas 11 SMA · Fase F',
+    curriculumCode: 'BIO-F.11.2 / NGSS HS-LS3-3',
+    topic: 'Dihybrid Inheritance & Chi-Square Application',
+    learningObjective:
+      'Apply Mendelian independent assortment ratios to test expected offspring counts in an experimental cross.',
+    bloomLevel: 'C3',
+    itemType: 'multiple-choice',
+    status: 'draft',
+    stimulusKind: 'data-table',
+    stimulusTitle: 'F2 Maize Kernel Phenotype Counts (n = 320)',
+    stimulusText:
+      'A genetics class crossed two heterozygous purple-smooth maize plants (PpSs × PpSs) and recorded 320 F2 kernels across four phenotype classes.',
+    stimulusSource: 'Genetics Lab Dataset · Spring Term',
+    stimulusTable: {
+      caption: 'Observed F2 Kernel Distribution (Total n = 320)',
+      headers: ['Phenotype Class', 'Expected Ratio', 'Observed Count'],
+      rows: [
+        ['Purple, Smooth', '9/16', '176'],
+        ['Purple, Wrinkled', '3/16', '62'],
+        ['Yellow, Smooth', '3/16', '58'],
+        ['Yellow, Wrinkled', '1/16', '24'],
+      ],
+    },
+    stem: 'Under the null hypothesis of independent assortment (9:3:3:1), what is the expected count for the Yellow, Smooth phenotype class out of 320 kernels?',
+    options: [
+      {
+        id: 'opt-a',
+        label: 'A',
+        text: '20 kernels',
+        distractorNote: 'Incorrect: 1/16 × 320 = 20 corresponds to the double-recessive class.',
+      },
+      {
+        id: 'opt-b',
+        label: 'B',
+        text: '60 kernels',
+        distractorNote: 'Correct: (3/16) × 320 = 60 expected kernels.',
+      },
+      {
+        id: 'opt-c',
+        label: 'C',
+        text: '80 kernels',
+        distractorNote: 'Incorrect: Corresponds to a 1/4 monohybrid ratio.',
+      },
+      {
+        id: 'opt-d',
+        label: 'D',
+        text: '180 kernels',
+        distractorNote: 'Incorrect: (9/16) × 320 = 180 corresponds to the double-dominant class.',
+      },
+    ],
+    correctOptionId: 'opt-b',
+    modelAnswer: 'B — (3/16) × 320 = 60 expected kernels.',
+    pedagogicalExplanation:
+      'Tests procedural application (C3) of Mendelian ratios prior to computing chi-square goodness-of-fit.',
+    difficultyIndex: 0.65,
+    discriminationIndex: 0.35,
+    estimatedMinutes: 2,
+    points: 3,
+    rubric: [
+      {
+        id: 'rub-bio-2',
+        criterion: 'Expected Value Calculation',
+        maxPoints: 3,
+        levels: {
+          exemplary: 'Applies 3/16 ratio to n=320 accurately.',
+          proficient: 'Uses correct fraction with minor arithmetic error.',
+          developing: 'Applies monohybrid 1/4 ratio.',
+          emerging: 'Repeats observed count as expected.',
+        },
+      },
+    ],
+    inExamPaper: false,
+    updatedAt: '2026-11-16',
+  },
+];

@@ -1,0 +1,6 @@
+{
+  "name": "EduSoal AI",
+  "description": "Precision institutional academic assessment suite for authoring, calibrating, and organizing Bloom-aligned exam items and rubrics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
